@@ -121,9 +121,11 @@ Avoid:
 When the article needs visual output, prefer direct image generation over prompt-only delivery:
 
 1. Generate images directly with ChatGPT Image when the image tool is available.
-2. Use a 16:9 aspect ratio for WeChat cover images and article hero visuals.
-3. Decide image count from article needs, with a hard maximum of 10 images per article.
-4. If image generation is unavailable, provide ready-to-use prompts as a fallback.
+2. Use 16:9 only for WeChat cover images and horizontal hero visuals.
+3. Use 9:16 or 1:1 for in-article images, depending on the article's rhythm and the section's content.
+4. Use 9:16 by default for share posters unless the user requests a square poster.
+5. Decide image count from article needs, with a hard maximum of 10 images per article.
+6. If image generation is unavailable, provide ready-to-use prompts as a fallback.
 
 Default visual style:
 
@@ -132,12 +134,13 @@ Default visual style:
 - Make the article's central metaphor visible when possible.
 - Keep text out of generated images unless the user explicitly asks for poster text; image models may render Chinese text poorly.
 - For WeChat cover images, prioritize a clean subject, strong contrast, and readable composition after cropping.
+- For in-article images, prioritize vertical mobile reading: 9:16 for scene-driven visuals, 1:1 for concept cards or section illustrations.
 
 Prepare these visual assets when useful:
 
 - Main cover image: usually 1-3 generated 16:9 options that match the article's core idea.
-- In-article visuals: generate only when the article benefits from section-specific imagery.
-- Share-poster concept: poster headline, short quote, visual direction, and prompt; generate only when requested or clearly useful.
+- In-article visuals: generate only when the article benefits from section-specific imagery; use 9:16 or 1:1.
+- Share-poster concept: poster headline, short quote, visual direction, and prompt; use 9:16 by default, and generate only when requested or clearly useful.
 - Prompt record: include the final prompt used for each generated image when a textual deliverable follows the image generation.
 
 Control quantity:
@@ -147,10 +150,11 @@ Control quantity:
 - Long guides, series posts, or visually structured articles: 3-6 images may be useful.
 - Never exceed 10 images unless the user explicitly changes this rule.
 
-Ask or infer from the user's request:
+Ask before generating:
 
-- If the user asks for a complete publish package, generate the recommended 16:9 cover image set when the tool is available.
-- If the user says "出图", "生成封面", "做海报", or similar, generate images directly instead of only writing prompts.
+- After finishing the article package, proactively ask whether the user wants to generate images.
+- Before generating, briefly propose the recommended image set, including count and aspect ratios.
+- If the user says "出图", "生成封面", "做海报", or similar before the article is complete, generate images directly once there is enough article context.
 - If image generation is unavailable, provide polished prompts and clear usage notes.
 
 ## Final Deliverable
@@ -162,7 +166,7 @@ Unless the user asks for a partial draft, deliver the full 8-part package:
 3. Main draft: complete article.
 4. WeChat editor-friendly version: copyable Chinese article with headings, bold markers, blockquotes, separators, and spacing cues.
 5. HTML version: clean HTML suitable for third-party formatters or later automation. Keep styles simple and inline-friendly when possible.
-6. Visual package: generated 16:9 cover image options with ChatGPT Image when available, image count chosen from article needs and capped at 10, prompt records, optional in-article image prompts, and share-poster direction.
+6. Visual package: recommended image set with count and aspect ratios, 16:9 cover image plan, optional 9:16 or 1:1 in-article image plan, share-poster direction, and prompt records. After delivering the article, ask whether to generate the images with ChatGPT Image.
 7. Pre-publication check report: viewpoint, logic, usefulness, mobile rhythm, AI voice, title-body fit, visual fit, missing materials.
 8. Next topic suggestions: related follow-up article ideas for building a series.
 
@@ -182,4 +186,4 @@ Choose the call to action based on the article purpose:
 - Keep the process visible but concise.
 - Do not expose long internal reasoning. Show decisions, not hidden deliberation.
 - When the user's material is thin, produce a useful draft but clearly list what additional material would improve it.
-- When generating images, use ChatGPT Image directly. Request or imply a 16:9 composition in the prompt, match the image closely to the article's content, and keep the total image count under 10.
+- When generating images, use ChatGPT Image directly. Request 16:9 only for cover images, 9:16 or 1:1 for in-article images, match each image closely to the article's content, and keep the total image count under 10.
