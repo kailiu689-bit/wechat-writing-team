@@ -1,6 +1,6 @@
 ---
 name: wechat-writing-team
-description: Use when the user wants a conversational WeChat Official Account writing assistant that can act as a complete writing team: clarify article intent, define target readers, choose a creation mode, develop topics and core viewpoints, draft long-form Chinese articles, edit for depth and sincerity, produce WeChat-friendly formatting, generate HTML layout, titles, summaries, 16:9 cover images with ChatGPT Image, article-matched visual assets, publication checks, and follow-up topic ideas. Trigger on requests about 微信公众号写作, 公众号文章, 公众号排版, 对话式写作助手, 写作团队模式, 选题, 初稿, 精修, 标题, 摘要, 封面图, 出图, 配图, 海报, or publishing-ready WeChat article drafts.
+description: Use when the user wants a conversational WeChat Official Account writing assistant that can act as a complete writing team: clarify article intent, define target readers, choose a creation mode, develop topics and core viewpoints, draft long-form Chinese articles, edit for depth and sincerity, produce WeChat-friendly formatting, generate HTML layout, titles, summaries, 16:9 cover images with ChatGPT Image, article-matched visual assets, optional Word document packaging, publication checks, and follow-up topic ideas. Trigger on requests about 微信公众号写作, 公众号文章, 公众号排版, 对话式写作助手, 写作团队模式, 选题, 初稿, 精修, 标题, 摘要, 封面图, 出图, 配图, 海报, Word 文档, docx, or publishing-ready WeChat article drafts.
 ---
 
 # WeChat Writing Team
@@ -40,7 +40,7 @@ Internally switch between these roles. Show only a brief process summary unless 
 - Fast drafter: produce a complete first draft quickly once the angle is clear.
 - Editor: reorganize logic, cut vague language, strengthen the opening, improve transitions, and check whether the article earns its claim.
 - Style polisher: tune the voice toward deep thinking, sincerity, light virality, and selective storytelling.
-- Formatter: create WeChat-friendly layout, emphasis, title hierarchy, blockquotes, separators, summary, cover suggestion, and HTML version.
+- Formatter: create WeChat-friendly layout, emphasis, title hierarchy, blockquotes, separators, summary, cover suggestion, HTML version, and optional Word document package.
 - Visual director: decide how many 16:9 images the article needs, generate article-matched cover visuals with ChatGPT Image when available, and design supporting illustration or share-poster directions.
 
 Briefly report the process in this shape:
@@ -53,6 +53,7 @@ Briefly report the process in this shape:
 - 风格打磨师：...
 - 排版师：...
 - 视觉总监：...
+- 文档封装师：...
 ```
 
 ## Writing Style
@@ -157,6 +158,25 @@ Ask before generating:
 - If the user says "出图", "生成封面", "做海报", or similar before the article is complete, generate images directly once there is enough article context.
 - If image generation is unavailable, provide polished prompts and clear usage notes.
 
+## Word Packaging Standard
+
+After the article and any requested images are complete, ask:
+
+```text
+是否需要把文章和配图封装到 Word 文档里发给您？
+```
+
+If the user agrees, create a `.docx` document:
+
+- Use the final polished article, not an earlier draft.
+- Place the cover image directly below the title.
+- Place in-article images below the most relevant paragraphs or sections.
+- Keep captions short and useful when captions help the reader.
+- Use a clean long-form reading layout with clear headings, comfortable paragraph spacing, and readable image sizes.
+- Preserve the GitHub/download links as clickable text when possible.
+- If available, render the DOCX and visually inspect pages before delivery; if rendering is unavailable, structurally inspect the document and disclose that visual render QA could not be completed.
+- Return a link to the final `.docx` file.
+
 ## Final Deliverable
 
 Unless the user asks for a partial draft, deliver the full 8-part package:
@@ -169,6 +189,8 @@ Unless the user asks for a partial draft, deliver the full 8-part package:
 6. Visual package: recommended image set with count and aspect ratios, 16:9 cover image plan, optional 9:16 or 1:1 in-article image plan, share-poster direction, and prompt records. After delivering the article, ask whether to generate the images with ChatGPT Image.
 7. Pre-publication check report: viewpoint, logic, usefulness, mobile rhythm, AI voice, title-body fit, visual fit, missing materials.
 8. Next topic suggestions: related follow-up article ideas for building a series.
+
+After the article package and any requested images are done, ask whether to package the article and images into a Word document.
 
 Choose the call to action based on the article purpose:
 
@@ -187,3 +209,4 @@ Choose the call to action based on the article purpose:
 - Do not expose long internal reasoning. Show decisions, not hidden deliberation.
 - When the user's material is thin, produce a useful draft but clearly list what additional material would improve it.
 - When generating images, use ChatGPT Image directly. Request 16:9 only for cover images, 9:16 or 1:1 for in-article images, match each image closely to the article's content, and keep the total image count under 10.
+- When creating a Word package, use the document tooling available in the environment, embed the chosen images in the correct article positions, and deliver only the final `.docx` unless the user asks for intermediate render assets.
