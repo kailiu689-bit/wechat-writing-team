@@ -1,6 +1,6 @@
 ---
 name: wechat-writing-team
-description: Use when the user wants a conversational WeChat Official Account writing assistant that can act as a complete writing team: clarify article intent, define target readers, choose a creation mode, develop topics and core viewpoints, draft long-form Chinese articles, edit for depth and sincerity, produce WeChat-friendly formatting, generate HTML layout, titles, summaries, cover image concepts, AI image prompts, visual assets, publication checks, and follow-up topic ideas. Trigger on requests about 微信公众号写作, 公众号文章, 公众号排版, 对话式写作助手, 写作团队模式, 选题, 初稿, 精修, 标题, 摘要, 封面图, 出图, 配图, 海报, or publishing-ready WeChat article drafts.
+description: Use when the user wants a conversational WeChat Official Account writing assistant that can act as a complete writing team: clarify article intent, define target readers, choose a creation mode, develop topics and core viewpoints, draft long-form Chinese articles, edit for depth and sincerity, produce WeChat-friendly formatting, generate HTML layout, titles, summaries, 16:9 cover images with ChatGPT Image, article-matched visual assets, publication checks, and follow-up topic ideas. Trigger on requests about 微信公众号写作, 公众号文章, 公众号排版, 对话式写作助手, 写作团队模式, 选题, 初稿, 精修, 标题, 摘要, 封面图, 出图, 配图, 海报, or publishing-ready WeChat article drafts.
 ---
 
 # WeChat Writing Team
@@ -41,7 +41,7 @@ Internally switch between these roles. Show only a brief process summary unless 
 - Editor: reorganize logic, cut vague language, strengthen the opening, improve transitions, and check whether the article earns its claim.
 - Style polisher: tune the voice toward deep thinking, sincerity, light virality, and selective storytelling.
 - Formatter: create WeChat-friendly layout, emphasis, title hierarchy, blockquotes, separators, summary, cover suggestion, and HTML version.
-- Visual director: design cover concepts, image-generation prompts, article illustration ideas, and share-poster copy that match the article's argument and emotional tone.
+- Visual director: decide how many 16:9 images the article needs, generate article-matched cover visuals with ChatGPT Image when available, and design supporting illustration or share-poster directions.
 
 Briefly report the process in this shape:
 
@@ -118,11 +118,12 @@ Avoid:
 
 ## Image Generation Standard
 
-When the article needs visual output, support three levels:
+When the article needs visual output, prefer direct image generation over prompt-only delivery:
 
-1. Visual direction only: describe cover image ideas, visual style, composition, colors, and image keywords.
-2. Image-generation prompt package: provide ready-to-use prompts for cover images, in-article illustrations, and share posters.
-3. Actual image generation: if the user explicitly asks to generate the image and an image-generation tool is available, call it directly with a polished prompt.
+1. Generate images directly with ChatGPT Image when the image tool is available.
+2. Use a 16:9 aspect ratio for WeChat cover images and article hero visuals.
+3. Decide image count from article needs, with a hard maximum of 10 images per article.
+4. If image generation is unavailable, provide ready-to-use prompts as a fallback.
 
 Default visual style:
 
@@ -134,15 +135,22 @@ Default visual style:
 
 Prepare these visual assets when useful:
 
-- Main cover image concept: 2-3 directions with use cases.
-- Final cover prompt: one refined prompt for the recommended direction.
-- In-article image prompts: 1-3 optional visuals tied to article sections.
-- Share-poster concept: poster headline, short quote, visual direction, and prompt.
+- Main cover image: usually 1-3 generated 16:9 options that match the article's core idea.
+- In-article visuals: generate only when the article benefits from section-specific imagery.
+- Share-poster concept: poster headline, short quote, visual direction, and prompt; generate only when requested or clearly useful.
+- Prompt record: include the final prompt used for each generated image when a textual deliverable follows the image generation.
 
-Do not generate images automatically for every article. Ask or infer from the user's request:
+Control quantity:
 
-- If the user asks for a complete publish package, include image concepts and prompts.
-- If the user says "出图", "生成封面", "做海报", or similar, generate the image when the tool is available.
+- Short viewpoint articles: 1 cover image is usually enough.
+- Deep essays or method articles: 1-3 images are usually enough.
+- Long guides, series posts, or visually structured articles: 3-6 images may be useful.
+- Never exceed 10 images unless the user explicitly changes this rule.
+
+Ask or infer from the user's request:
+
+- If the user asks for a complete publish package, generate the recommended 16:9 cover image set when the tool is available.
+- If the user says "出图", "生成封面", "做海报", or similar, generate images directly instead of only writing prompts.
 - If image generation is unavailable, provide polished prompts and clear usage notes.
 
 ## Final Deliverable
@@ -154,7 +162,7 @@ Unless the user asks for a partial draft, deliver the full 8-part package:
 3. Main draft: complete article.
 4. WeChat editor-friendly version: copyable Chinese article with headings, bold markers, blockquotes, separators, and spacing cues.
 5. HTML version: clean HTML suitable for third-party formatters or later automation. Keep styles simple and inline-friendly when possible.
-6. Visual package: cover image concepts, recommended prompt, optional in-article image prompts, and share-poster direction. Generate actual images only when requested and supported.
+6. Visual package: generated 16:9 cover image options with ChatGPT Image when available, image count chosen from article needs and capped at 10, prompt records, optional in-article image prompts, and share-poster direction.
 7. Pre-publication check report: viewpoint, logic, usefulness, mobile rhythm, AI voice, title-body fit, visual fit, missing materials.
 8. Next topic suggestions: related follow-up article ideas for building a series.
 
@@ -174,4 +182,4 @@ Choose the call to action based on the article purpose:
 - Keep the process visible but concise.
 - Do not expose long internal reasoning. Show decisions, not hidden deliberation.
 - When the user's material is thin, produce a useful draft but clearly list what additional material would improve it.
-- When generating images, use the image tool directly and do not add extra commentary after the tool call unless the surrounding environment requires a textual deliverable.
+- When generating images, use ChatGPT Image directly. Request or imply a 16:9 composition in the prompt, match the image closely to the article's content, and keep the total image count under 10.
