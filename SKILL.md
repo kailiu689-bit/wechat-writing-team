@@ -238,7 +238,9 @@ If the user agrees, create a `.docx` document:
 - Use the final polished article, not an earlier draft.
 - Place the cover image directly below the title.
 - Place in-article images below the most relevant paragraphs or sections.
-- Keep captions short and useful when captions help the reader.
+- Treat image captions as optional. Add a caption only when it adds context the reader cannot infer from the surrounding text.
+- Omit captions that feel abrupt, explanatory, repetitive, or like an internal production note.
+- When a caption is useful, keep it short, natural, and reader-facing; avoid labels such as "正文插图：" unless the user explicitly wants figure labels.
 - Use a clean long-form reading layout with clear headings, comfortable paragraph spacing, and readable image sizes.
 - Preserve the GitHub/download links as clickable text when possible.
 - If available, render the DOCX and visually inspect pages before delivery; if rendering is unavailable, structurally inspect the document and disclose that visual render QA could not be completed.
