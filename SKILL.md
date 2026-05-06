@@ -13,7 +13,7 @@ This skill is optimized for personal media authors and knowledge/expert creators
 
 ## Start Every Article
 
-Before drafting, ask these three required questions:
+Before drafting, ask these four required questions:
 
 1. Which creation mode should we use?
    - Step-by-step confirmation: confirm topic, angle, and outline before drafting.
@@ -23,6 +23,10 @@ Before drafting, ask these three required questions:
    - Examples: personal creators, knowledge bloggers, professionals, entrepreneurs, founders, industry practitioners, anxious learners, or a specific niche audience.
 3. What is the article purpose?
    - Express a viewpoint, build trust, drive conversion, preserve knowledge, encourage sharing, or another stated goal.
+4. What length should this article use?
+   - Short: 800-1200 Chinese characters, focus only on the main point.
+   - Standard: 1200-1800 Chinese characters, balanced story and method. Use this by default when the user has no preference.
+   - Deep: 1800-2800 Chinese characters, use only when the topic needs richer context or the user asks for depth.
 
 Then handle the core viewpoint:
 
@@ -39,6 +43,8 @@ Internally switch between these roles. Show only a brief process summary unless 
 - Researcher: identify supporting materials, reader pain points, common examples, counterarguments, and context gaps.
 - Fast drafter: produce a complete first draft quickly once the angle is clear.
 - Editor: reorganize logic, cut vague language, strengthen the opening, improve transitions, and check whether the article earns its claim.
+- Ruthless editor: remove repetitive setup, empty transitions, over-explanation, and paragraphs that do not add new information; compress the final draft by 20-30% when it feels slow.
+- Plain-language translator: force the core value into a "说白了..." sentence that ordinary readers can understand quickly.
 - Style polisher: tune the voice toward deep thinking, sincerity, light virality, and selective storytelling.
 - Formatter: create WeChat-friendly layout, emphasis, title hierarchy, blockquotes, separators, summary, cover suggestion, HTML version, and optional Word document package.
 - Visual director: decide how many 16:9 images the article needs, generate article-matched cover visuals with ChatGPT Image when available, and design supporting illustration or share-poster directions.
@@ -50,6 +56,8 @@ Briefly report the process in this shape:
 - 研究员：...
 - 主笔：...
 - 编辑：...
+- 冷酷主编：...
+- 白话解释器：...
 - 风格打磨师：...
 - 排版师：...
 - 视觉总监：...
@@ -84,6 +92,8 @@ Prioritize these three standards:
 1. Clear viewpoint: the reader can remember one central judgment after reading.
 2. Practical value: the reader leaves with a method, insight, framework, or action.
 3. WeChat reading experience: short paragraphs, strong rhythm, readable on mobile.
+4. Reading desire: the first 3 paragraphs must make the reader understand why this matters to them and why they should continue.
+5. Fast comprehension: tool, method, and workflow articles must include a "说白了..." explanation within the first 5 paragraphs.
 
 Secondary standards:
 
@@ -93,6 +103,18 @@ Secondary standards:
 - The article contains a few quotable or screenshot-worthy sentences.
 
 If a viral title conflicts with the article's actual substance, reduce the title intensity or strengthen the article before delivery.
+
+## Compression And Clarity Pass
+
+Before final delivery, run a compression pass based on real-reader tolerance:
+
+- Ask whether each paragraph adds one of four things: new information, a concrete example, useful method, or emotional/argument momentum.
+- Delete or merge paragraphs that only repeat the same idea in softer words.
+- Prefer one clear sentence over three elegant but vague sentences.
+- Move the practical "what this is useful for" explanation earlier when the article introduces a tool, workflow, or method.
+- If the article feels like a complete explanation but not an interesting read, rewrite the opening around a concrete scene, conflict, result, or reader pain.
+- For tool or method introductions, lead with use value before abstract philosophy.
+- Produce a concise version when the article is long, when the user asks for easy reading, or when feedback says the draft has low reading desire.
 
 ## Formatting Standard
 
@@ -179,16 +201,17 @@ If the user agrees, create a `.docx` document:
 
 ## Final Deliverable
 
-Unless the user asks for a partial draft, deliver the full 8-part package:
+Unless the user asks for a partial draft, deliver the full 9-part package:
 
 1. Title group: 5-10 titles, mixing steady, sincere, and more shareable options.
 2. Summary and intro copy: WeChat article summary plus a short Moments/share caption.
 3. Main draft: complete article.
-4. WeChat editor-friendly version: copyable Chinese article with headings, bold markers, blockquotes, separators, and spacing cues.
-5. HTML version: clean HTML suitable for third-party formatters or later automation. Keep styles simple and inline-friendly when possible.
-6. Visual package: recommended image set with count and aspect ratios, 16:9 cover image plan, optional 9:16 or 1:1 in-article image plan, share-poster direction, and prompt records. After delivering the article, ask whether to generate the images with ChatGPT Image.
-7. Pre-publication check report: viewpoint, logic, usefulness, mobile rhythm, AI voice, title-body fit, visual fit, missing materials.
-8. Next topic suggestions: related follow-up article ideas for building a series.
+4. Concise publish version: 800-1200 Chinese characters when useful, focused on quick comprehension and reading desire.
+5. WeChat editor-friendly version: copyable Chinese article with headings, bold markers, blockquotes, separators, and spacing cues.
+6. HTML version: clean HTML suitable for third-party formatters or later automation. Keep styles simple and inline-friendly when possible.
+7. Visual package: recommended image set with count and aspect ratios, 16:9 cover image plan, optional 9:16 or 1:1 in-article image plan, share-poster direction, and prompt records. After delivering the article, ask whether to generate the images with ChatGPT Image.
+8. Pre-publication check report: viewpoint, logic, usefulness, reading desire, fast comprehension, mobile rhythm, AI voice, title-body fit, visual fit, missing materials.
+9. Next topic suggestions: related follow-up article ideas for building a series.
 
 After the article package and any requested images are done, ask whether to package the article and images into a Word document.
 
