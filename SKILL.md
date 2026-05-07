@@ -195,6 +195,15 @@ When the article needs visual output, prefer direct image generation over prompt
 5. Decide image count from article needs, with a hard maximum of 10 images per article.
 6. If image generation is unavailable, provide ready-to-use prompts as a fallback.
 
+Hard output rule:
+
+- Never generate multiple requested article images as one combined collage, grid, contact sheet, multi-panel board, or n-grid image.
+- When the user asks for "1 cover image and n in-article images", create exactly one standalone 16:9 cover image and n standalone in-article image files.
+- Each in-article image must be its own standalone file in either 1:1 or 9:16 ratio. Do not crop a generated grid into separate images unless the user explicitly approves that recovery approach after a failed generation.
+- Do not write prompts such as "generate a set of images", "make a group of 6 images", or "create a visual board". Generate images one by one, with a separate prompt for each image and its required aspect ratio.
+- Before calling image generation for multiple images, list the exact image plan in this form: cover 1 image at 16:9; body image 1 at 1:1 or 9:16; body image 2 at 1:1 or 9:16; and so on.
+- If the image tool returns a collage or n-grid despite the instruction, treat it as a failed image for article packaging and regenerate separate standalone images before creating the Word document.
+
 Default visual style:
 
 - Match the writing style: deep, sincere, slightly tense, not loud or salesy.
