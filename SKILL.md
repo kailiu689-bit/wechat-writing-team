@@ -193,7 +193,8 @@ When the article needs visual output, prefer direct image generation over prompt
 3. Use 9:16 or 1:1 for in-article images, depending on the article's rhythm and the section's content.
 4. Use 9:16 by default for share posters unless the user requests a square poster.
 5. Decide image count from article needs, with a hard maximum of 10 images per article.
-6. If image generation is unavailable, provide ready-to-use prompts as a fallback.
+6. After image generation, create publishing-ready compressed copies for WeChat use. Each final image embedded in Word or handed to the user must be under 1 MB unless the user explicitly asks for original quality.
+7. If image generation is unavailable, provide ready-to-use prompts as a fallback.
 
 Hard output rule:
 
@@ -203,6 +204,9 @@ Hard output rule:
 - Do not write prompts such as "generate a set of images", "make a group of 6 images", or "create a visual board". Generate images one by one, with a separate prompt for each image and its required aspect ratio.
 - Before calling image generation for multiple images, list the exact image plan in this form: cover 1 image at 16:9; body image 1 at 1:1 or 9:16; body image 2 at 1:1 or 9:16; and so on.
 - If the image tool returns a collage or n-grid despite the instruction, treat it as a failed image for article packaging and regenerate separate standalone images before creating the Word document.
+- Do not embed raw Image 2 / ChatGPT Image PNG outputs directly into a WeChat Word package. Convert each accepted image into a compressed publishing copy first, normally JPEG/WebP-compatible quality in a `.jpg` file.
+- Keep a maximum practical pixel size unless the user requests print quality: cover images around 1280 px wide, square in-article images around 1080 x 1080, and vertical in-article images around 900 x 1600. Reduce dimensions or quality until every image is below 1 MB.
+- After compression, verify every image file size. If any image is still over 1 MB, compress again before packaging.
 
 Default visual style:
 
@@ -252,6 +256,8 @@ If the user agrees, create a `.docx` document:
 - When a caption is useful, keep it short, natural, and reader-facing; avoid labels such as "正文插图：" unless the user explicitly wants figure labels.
 - Use a clean long-form reading layout with clear headings, comfortable paragraph spacing, and readable image sizes.
 - Preserve the GitHub/download links as clickable text when possible.
+- Use the compressed publishing-ready image copies, not raw generated images. The Word document for WeChat import must stay under 15 MB; target under 12 MB to leave safety margin.
+- Before delivery, check and report the final `.docx` file size. If it exceeds 15 MB, reduce embedded image sizes/quality and rebuild the document.
 - If available, render the DOCX and visually inspect pages before delivery; if rendering is unavailable, structurally inspect the document and disclose that visual render QA could not be completed.
 - Return a link to the final `.docx` file.
 
