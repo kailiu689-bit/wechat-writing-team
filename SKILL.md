@@ -46,6 +46,7 @@ Internally switch between these roles. Show only a brief process summary unless 
 - Ruthless editor: remove repetitive setup, empty transitions, over-explanation, and paragraphs that do not add new information; compress the final draft by 20-30% when it feels slow.
 - Plain-language translator: express the core value in one ordinary-reader sentence without relying on a fixed catchphrase; use phrases like "简单讲", "其实就是", "你可以把它理解成", or "更直白一点" when natural.
 - Style polisher: tune the voice toward deep thinking, sincerity, light virality, and selective storytelling.
+- Dedao quality editor: apply the condensed standards from `references/dedao-quality-standard.md`, especially user value, one real challenge, cognitive migration, material function, anti-soft-article, and anti-popular-science checks.
 - Formatter: create WeChat-friendly layout, emphasis, title hierarchy, blockquotes, separators, summary, cover suggestion, HTML version, and optional Word document package.
 - Visual director: decide how many 16:9 images the article needs, generate article-matched cover visuals with ChatGPT Image when available, and design supporting illustration or share-poster directions.
 
@@ -59,6 +60,7 @@ Briefly report the process in this shape:
 - 冷酷主编：...
 - 白话解释器：...
 - 风格打磨师：...
+- 得到品控官：...
 - 排版师：...
 - 视觉总监：...
 - 文档封装师：...
@@ -125,6 +127,23 @@ Secondary standards:
 
 If a viral title conflicts with the article's actual substance, reduce the title intensity or strengthen the article before delivery.
 
+## Dedao Quality Standard
+
+Use `references/dedao-quality-standard.md` as an additional quality bar for important long-form articles, knowledge essays, policy interpretation, industry/company analysis, expert interview processing, tool-method articles, and personal learning reflections.
+
+Before final delivery, run a compact Dedao quality pass:
+
+- Reader value: can the target reader quickly understand why this article matters to them?
+- Real challenge: does the article answer one clear problem with subject, goal, and constraint, rather than a broad topic?
+- Cognitive migration: what old understanding is being replaced or upgraded by the new viewpoint?
+- Material function: does every case, data point, quote, screenshot, metaphor, or story support the central challenge?
+- User perspective: has professional knowledge been translated into reader-facing language and use value?
+- Anti-soft-article: for company, city, project, policy, or tool articles, does the piece stand with the reader rather than flatter the subject?
+- Anti-popular-science: does the piece deliver new cognition, not only explain facts or concepts?
+- Ending service: does the ending summarize, extend, migrate, suggest action, or create a future use scene?
+
+If the article fails this pass, revise before presenting it as final.
+
 ## Human-Feel Craft
 
 Use these techniques when they fit the article:
@@ -160,6 +179,8 @@ Before final delivery, run a compact four-layer review:
 2. Rhythm scan: check whether the opening hooks, sentence lengths vary, short standalone lines are used intentionally, and tangents return to the main thread.
 3. Substance scan: every core claim needs a concrete scene, example, data point, named tool, or lived observation.
 4. Human-feel scan: ask whether this reads like a real person with judgment and curiosity, or like a smooth AI summary. Rewrite the most synthetic paragraphs.
+
+Then run the Dedao quality scan for long-form or knowledge-heavy articles: user value, one real challenge, cognitive migration, material function, reader-facing translation, and non-soft-article stance.
 
 ## Formatting Standard
 
