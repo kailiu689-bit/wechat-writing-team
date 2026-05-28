@@ -207,9 +207,9 @@ Avoid:
 
 ## Image Generation Standard
 
-When the article needs visual output, prefer direct image generation over prompt-only delivery:
+When the article needs visual output, first run the visual source decision workflow, then directly produce the chosen visual assets instead of only giving prompts:
 
-1. Generate images directly with ChatGPT Image when the image tool is available.
+1. Generate images directly with ChatGPT Image when the visual source decision chooses image2 / AI generation and the image tool is available.
 2. Use 16:9 only for WeChat cover images and horizontal hero visuals.
 3. Use 9:16 or 1:1 for in-article images, depending on the article's rhythm and the section's content.
 4. Use 9:16 by default for share posters unless the user requests a square poster.
@@ -252,6 +252,74 @@ Control quantity:
 - Long guides, series posts, or visually structured articles: 3-6 images may be useful.
 - Never exceed 10 images unless the user explicitly changes this rule.
 
+## Visual Source Decision Standard
+
+The visual director must choose the right image source like a professional WeChat operator, not mechanically use one style for every article.
+
+Mandatory 4-step visual workflow:
+
+1. Visual director diagnosis:
+   - First judge what kind of visuals this article actually needs from a WeChat publishing perspective.
+   - Decide whether the article needs credibility, emotional atmosphere, conceptual explanation, data memory, shareability, or only a strong cover.
+   - Decide the image count and ratios before making images. Do not begin by generating.
+2. Flashcard route for a small number of viewpoints:
+   - If the article only has 1-2 sharp viewpoints, quotations, or simple frameworks, use flashcard / social-card visuals.
+   - These cards should carry one sentence or one idea, not a full paragraph.
+   - Use this route for shareable观点卡, 金句卡, 简单机制卡, or朋友圈传播图.
+3. Editorial sourced-image route for higher texture:
+   - If the article needs more professional WeChat texture, first look for suitable editorial images from free image libraries.
+   - Learn from guizang-social-card-skill here: image choice must serve a clear visual argument; do not use images as filler.
+   - Use free-library photos for real-world scenes, cities, industries, education, infrastructure, workspaces, documents, and public life when they are more credible than AI images.
+   - Insert these as article-matched body images, not random stock decoration.
+4. Image2 generation route when no suitable real image exists:
+   - If no fitting user image or free-library image exists, generate a standalone image with ChatGPT Image / image2.
+   - Use image2 especially for the 16:9 cover, abstract editorial metaphors, controlled symbolic scenes, or unavailable real-world scenes.
+   - Keep generated visuals magazine-like, sober, and article-specific.
+
+This workflow may be optimized only in one direction: if the user supplies a real screenshot/photo/video frame that is obviously the strongest evidence, use it before Step 2. Real evidence beats cards, stock, and AI generation.
+
+Default source priority:
+
+1. User-supplied real screenshots / photos: use when the article depends on evidence, a real event, a conversation, a product, a document, a GitHub page, a video frame, or a personal process.
+2. Free web-sourced images: use when a real-world scene is more credible than AI generation, especially city, industry, policy, infrastructure, education, workplace, travel, and public-life articles.
+3. ChatGPT Image / image2 generated visuals: use when the article needs a high-quality editorial metaphor, a conceptual scene, a controlled cover image, or when no suitable real image exists.
+4. Social-card / designed card visuals: use when the visual job is to make a sentence, framework, data point, comparison, timeline, or mechanism shareable. Do not use card visuals as a cheap substitute for scene images.
+
+Hard rule:
+
+- The image2 / ChatGPT Image capability must not be discarded. Guizang-style social cards are an additional planning and layout capability, not a replacement for professional image generation.
+- The final choice must be based on the article's publishing need: credibility, emotional texture, explanation, shareability, and WeChat reading rhythm.
+- If a card-style image looks like a generic PPT page, reject it and switch to an editorial scene, real screenshot, sourced photo, or a cleaner designed quote card.
+
+Use this decision matrix:
+
+- Personal experience / tool process / video reflection: first use screenshots, video frames, or user's real photos; use image2 only for cover or missing atmosphere.
+- Policy / city / industry / company analysis: prefer real public-domain-like scene photos from free libraries or user screenshots; use image2 for abstract cover metaphors; use cards only for data, timelines, or mechanism diagrams.
+- Education / interview / learning reflection: prefer real video screenshots or classroom/desk scenes; if unavailable, use image2 for warm documentary-style visuals.
+- Financial / government / infrastructure topics: avoid glossy futuristic AI images. Prefer documents, meeting rooms, city infrastructure, project sites, ledgers, maps, and sober editorial metaphors.
+- Method / framework article: use one or two social cards for the core framework, but keep the cover and main body visuals editorial.
+- Social sharing package / 小红书 / 朋友圈: apply guizang-social-card-skill's one-card-one-job method and stronger layout rules.
+
+Free image library workflow:
+
+- When the user has no usable image and a real scene is more suitable than image2, search free image libraries before generating AI imagery.
+- Preferred free sources:
+  - Pexels: best for Chinese keyword search, city scenes, public life, workplace, education, infrastructure, and local-feeling imagery.
+  - Unsplash: best for polished editorial atmosphere, business, city, abstract industry, desk, and lifestyle scenes.
+  - Flickr Creative Commons: best for documentary realism, local public scenes, streets, facilities, and less polished real-world texture.
+- Avoid paid stock sites and unverifiable copyrighted images unless the user explicitly provides or approves them.
+- Save source URLs in a `SOURCES.md` file when external images are used.
+- Tell the user which external sources were used and whether attribution is recommended.
+
+Professional visual review before packaging:
+
+- Does this image make the article more credible, easier to understand, or easier to share?
+- Is it too generic, too AI-looking, too decorative, or too "PPT card"?
+- Would this look respectable in a serious WeChat public account feed?
+- Does the cover create curiosity in the feed thumbnail?
+- Do body images belong exactly under the paragraphs where they appear?
+- If two visuals have the same job, keep only the stronger one.
+
 ## Social Card And Visual Planning Standard
 
 When the user asks for 配图, 封面图, 海报, 社交卡片, 小红书图文, 朋友圈分享图, or a visually stronger WeChat package, apply the social-card method before generating images.
@@ -260,15 +328,18 @@ Core idea:
 
 - Images are not decoration. Each image must perform one publishing job: hook attention, explain the core judgment, make one data point memorable, turn a structure into a card, make a case feel real, or create a shareable quote.
 - Prefer "one card, one idea". Do not pack multiple arguments, scenes, or screenshots into one image.
-- For analysis articles, use card-like visuals when the argument is abstract: title card, core judgment card, data card, comparison card, timeline card, mechanism card, case card, or closing quote card.
+- For analysis articles, use card-like visuals only when the argument itself needs abstraction: title card, core judgment card, data card, comparison card, timeline card, mechanism card, case card, or closing quote card. Do not turn every article image into a card.
 - For personal essays and interview reflections, prioritize real screenshots or real scenes first; use AI-generated images only to fill conceptual gaps.
 - For policy, finance, city, company, and industrial analysis, prefer clean editorial visuals: documents, maps, industrial scenes, balance sheets, meeting tables, project sites, ports, factories, court documents, or diagram-like cards. Avoid empty futuristic light effects.
+- For serious public-account analysis, the normal package should be a mix: one strong 16:9 editorial cover, several real / image2 scene images, and at most 1-2 social cards if they truly improve comprehension or sharing.
 
 Before generating or packaging images, create a compact visual plan:
 
 ```text
 视觉方案
+- 视觉总监判断：这篇文章更适合 真实截图 / 免费图库 editorial 图 / image2 生成图 / 闪卡图 / 混合方案，理由：...
 - 封面图：1 张，16:9，承担的任务：...
+- 图片来源判断：用户素材 / 免费图库 / image2 / 社交卡片，选择理由：...
 - 正文图 1：比例 1:1 / 9:16，放置位置：...，承担的任务：...
 - 正文图 2：比例 1:1 / 9:16，放置位置：...，承担的任务：...
 - 社交卡片（可选）：比例 1:1 / 9:16，用途：朋友圈 / 小红书 / 文末转发，承担的任务：...
