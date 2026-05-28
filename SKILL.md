@@ -48,7 +48,7 @@ Internally switch between these roles. Show only a brief process summary unless 
 - Style polisher: tune the voice toward deep thinking, sincerity, light virality, and selective storytelling.
 - Dedao quality editor: apply the condensed standards from `references/dedao-quality-standard.md`, especially user value, one real challenge, cognitive migration, material function, anti-soft-article, and anti-popular-science checks.
 - Formatter: create WeChat-friendly layout, emphasis, title hierarchy, blockquotes, separators, summary, cover suggestion, HTML version, and optional Word document package.
-- Visual director: decide how many 16:9 images the article needs, generate article-matched cover visuals with ChatGPT Image when available, and design supporting illustration or share-poster directions.
+- Visual director: turn the article's core viewpoint into a visual system, decide the cover/body/share-card image plan, generate article-matched cover visuals with ChatGPT Image when available, design supporting illustration or social-card directions, and reject decorative images that do not help the reader understand or share the article.
 
 Briefly report the process in this shape:
 
@@ -251,6 +251,52 @@ Control quantity:
 - Deep essays or method articles: 1-3 images are usually enough.
 - Long guides, series posts, or visually structured articles: 3-6 images may be useful.
 - Never exceed 10 images unless the user explicitly changes this rule.
+
+## Social Card And Visual Planning Standard
+
+When the user asks for 配图, 封面图, 海报, 社交卡片, 小红书图文, 朋友圈分享图, or a visually stronger WeChat package, apply the social-card method before generating images.
+
+Core idea:
+
+- Images are not decoration. Each image must perform one publishing job: hook attention, explain the core judgment, make one data point memorable, turn a structure into a card, make a case feel real, or create a shareable quote.
+- Prefer "one card, one idea". Do not pack multiple arguments, scenes, or screenshots into one image.
+- For analysis articles, use card-like visuals when the argument is abstract: title card, core judgment card, data card, comparison card, timeline card, mechanism card, case card, or closing quote card.
+- For personal essays and interview reflections, prioritize real screenshots or real scenes first; use AI-generated images only to fill conceptual gaps.
+- For policy, finance, city, company, and industrial analysis, prefer clean editorial visuals: documents, maps, industrial scenes, balance sheets, meeting tables, project sites, ports, factories, court documents, or diagram-like cards. Avoid empty futuristic light effects.
+
+Before generating or packaging images, create a compact visual plan:
+
+```text
+视觉方案
+- 封面图：1 张，16:9，承担的任务：...
+- 正文图 1：比例 1:1 / 9:16，放置位置：...，承担的任务：...
+- 正文图 2：比例 1:1 / 9:16，放置位置：...，承担的任务：...
+- 社交卡片（可选）：比例 1:1 / 9:16，用途：朋友圈 / 小红书 / 文末转发，承担的任务：...
+```
+
+Wechat defaults:
+
+- WeChat article cover remains 16:9 unless the user explicitly requests another ratio.
+- Body images remain standalone 1:1 or 9:16 files.
+- If a social-card skill or template suggests multiple ratios, adapt it to the user's WeChat rule: 16:9 for cover, 1:1 or 9:16 for body/share cards.
+- For share cards, use 9:16 by default when the card is poster-like, and 1:1 when it is a concise quote, data, or framework card.
+
+Card content rules:
+
+- Keep card copy extremely short. Use one headline plus at most 2-4 short supporting lines.
+- Use the article's strongest sentence, not a new slogan that the article does not support.
+- Never ask the image model to render dense Chinese paragraphs. If Chinese text must appear, prefer generating a clean background first and adding text later with document/image tooling.
+- Use real screenshots when they are part of the evidence. If several screenshots are a continuous conversation or process, stitch only the relevant sequence vertically, remove duplicates, and keep context readable.
+- If screenshots include irrelevant personal information, crop or blur before packaging when possible.
+- Do not add captions mechanically. Add a caption only when it gives the reader context; avoid production labels like "正文插图：".
+
+Quality gates:
+
+- Every visual must answer: why does this image belong under this paragraph?
+- If no image has a clear job, use fewer images.
+- If a body image feels like a generic stock photo, regenerate it as a card, diagram, screenshot, or more concrete scene.
+- If two images say the same thing, keep the stronger one.
+- If the visual package makes the Word document heavy, compress images before rebuilding; each embedded image should stay under 1 MB and the Word document should stay under 15 MB, preferably under 12 MB.
 
 Ask before generating:
 
